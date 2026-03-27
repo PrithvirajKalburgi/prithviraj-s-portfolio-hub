@@ -35,6 +35,44 @@ const experiences = [
   },
 ];
 
+const ExperienceCard = ({ exp, index }: { exp: typeof experiences[0]; index: number }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: -40, y: 20 }}
+      animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
+      className="relative pl-16 md:pl-20"
+    >
+      {/* Timeline dot */}
+      <div className="absolute left-3.5 md:left-5.5 top-1 w-5 h-5 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
+        <Briefcase size={10} className="text-primary" />
+      </div>
+
+      <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition-all duration-300 group card-glow">
+        <span className="text-primary text-xs font-medium tracking-wider uppercase">
+          {exp.period}
+        </span>
+        <h3 className="text-foreground text-xl font-bold mt-2 group-hover:text-primary transition-colors">
+          {exp.role}
+        </h3>
+        <p className="text-muted-foreground text-sm mt-1 mb-4">{exp.company}</p>
+        <ul className="space-y-2">
+          {exp.description.map((desc, j) => (
+            <li key={j} className="text-muted-foreground text-sm flex items-start gap-2">
+              <span className="text-primary mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+              {desc}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </motion.div>
+  );
+};
+
 const ExperienceSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -52,41 +90,10 @@ const ExperienceSection = () => {
         </motion.h2>
 
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-border" />
-
           <div className="space-y-12">
             {experiences.map((exp, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.2 + i * 0.15 }}
-                className="relative pl-16 md:pl-20"
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-3.5 md:left-5.5 top-1 w-5 h-5 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
-                  <Briefcase size={10} className="text-primary" />
-                </div>
-
-                <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition-all duration-300 group card-glow">
-                  <span className="text-primary text-xs font-medium tracking-wider uppercase">
-                    {exp.period}
-                  </span>
-                  <h3 className="text-foreground text-xl font-bold mt-2 group-hover:text-primary transition-colors">
-                    {exp.role}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mt-1 mb-4">{exp.company}</p>
-                  <ul className="space-y-2">
-                    {exp.description.map((desc, j) => (
-                      <li key={j} className="text-muted-foreground text-sm flex items-start gap-2">
-                        <span className="text-primary mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                        {desc}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
+              <ExperienceCard key={i} exp={exp} index={i} />
             ))}
           </div>
         </div>
