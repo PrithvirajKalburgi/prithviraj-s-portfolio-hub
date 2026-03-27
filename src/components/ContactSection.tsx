@@ -32,12 +32,12 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-32 relative grid-bg" ref={ref}>
+    <section id="contact" className="py-32 relative section-alt" ref={ref}>
       <div className="container mx-auto px-6 max-w-6xl">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-laser text-sm tracking-[0.3em] uppercase mb-4 text-center"
+          className="text-laser text-sm tracking-[0.3em] uppercase mb-4 text-center label-bubble mx-auto w-fit"
         >
           Get In Touch
         </motion.p>
