@@ -73,7 +73,7 @@
   position: absolute;
   inset: -6px -14px;
   border-radius: 9999px;
-  background: hsl(47 100% 55% / 0.08);
+  background: hsl(160 100% 36% / 0.08);
   filter: blur(2px);
   z-index: -1;
 }
@@ -105,11 +105,11 @@
 }
 
 .text-laser {
-  color: hsl(47 100% 55%);
+  color: hsl(160 100% 36%);
 }
 
 .text-gradient-laser {
-  background: linear-gradient(135deg, hsl(47 100% 55%), hsl(40 90% 50%));
+  background: linear-gradient(135deg, hsl(160 100% 36%), hsl(155 80% 40%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
