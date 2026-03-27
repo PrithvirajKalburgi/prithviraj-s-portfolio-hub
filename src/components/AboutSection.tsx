@@ -22,7 +22,7 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.4 }}
-          className="bg-card border border-border rounded-2xl p-8 md:p-12"
+          className="bg-card border border-border rounded-2xl p-8 md:p-12 card-glow"
         >
           <p className="text-muted-foreground leading-relaxed text-lg mb-6">
             Hi there! I'm an enthusiastic and passionate Software Engineer with a strong interest in developing innovative solutions that make a real impact. As a recent graduate from{" "}

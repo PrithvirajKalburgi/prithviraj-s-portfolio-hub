@@ -32,7 +32,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-32 relative section-alt" ref={ref}>
+    <section id="contact" className="py-32 relative" ref={ref}>
       <div className="container mx-auto px-6 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ const ContactSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + i * 0.1 }}
-                className="bg-card border border-border rounded-2xl p-6 flex items-center gap-4 hover:border-primary/40 transition-all duration-300 group min-w-0"
+                className="bg-card border border-border rounded-2xl p-6 flex items-center gap-4 hover:border-primary/40 transition-all duration-300 group min-w-0 card-glow"
               >
                 <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors flex-shrink-0">
                   <c.icon className="text-primary" size={22} />
@@ -74,7 +74,7 @@ const ContactSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.4 }}
-            className="bg-card border border-border rounded-2xl p-8 space-y-5"
+            className="bg-card border border-border rounded-2xl p-8 space-y-5 card-glow"
           >
             <h3 className="text-foreground font-bold text-lg mb-2">Leave a Message</h3>
             <div>
