@@ -92,6 +92,17 @@
   background-clip: text;
 }
 
+.text-laser {
+  color: hsl(120 100% 55%);
+}
+
+.text-gradient-laser {
+  background: linear-gradient(135deg, hsl(120 100% 55%), hsl(150 80% 50%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Floating orb animation */
 @keyframes float-slow {
   0%, 100% { transform: translate(0, 0) scale(1); }
