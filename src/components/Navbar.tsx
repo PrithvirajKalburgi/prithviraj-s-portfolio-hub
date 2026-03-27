@@ -30,14 +30,14 @@ const Navbar = () => {
         scrolled ? "bg-background/30 backdrop-blur-xl border-b border-border/20" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between h-16">
+      <div className="w-full px-6 flex items-center h-16">
         {/* Logo */}
-        <a href="#home" className="text-foreground font-bold text-xl">
+        <a href="#home" className="text-foreground font-bold text-xl mr-auto">
           PK<span className="text-primary">.</span>
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center justify-center flex-1 gap-10">
           {navItems.map((item) => (
             <a
               key={item.label}
@@ -48,6 +48,7 @@ const Navbar = () => {
             </a>
           ))}
         </div>
+        <div className="hidden md:block w-[40px]" />
 
         {/* Mobile toggle */}
         <button
