@@ -37,7 +37,7 @@ const SkillsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-32 relative section-alt" ref={ref}>
+    <section id="skills" className="py-32 relative" ref={ref}>
       <div className="container mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ const SkillsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 + i * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition-all duration-300 group"
+              className="bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition-all duration-300 group card-glow"
             >
               <h3 className="text-foreground font-semibold text-lg mb-4 group-hover:text-primary transition-colors">
                 {cat.title}

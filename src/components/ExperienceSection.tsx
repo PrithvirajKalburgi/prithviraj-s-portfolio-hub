@@ -40,7 +40,7 @@ const ExperienceSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="py-32 relative section-alt" ref={ref}>
+    <section id="experience" className="py-32 relative" ref={ref}>
       <div className="container mx-auto px-6 max-w-4xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -69,7 +69,7 @@ const ExperienceSection = () => {
                   <Briefcase size={10} className="text-primary" />
                 </div>
 
-                <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition-all duration-300 group">
+                <div className="bg-card border border-border rounded-2xl p-6 hover:border-primary/40 transition-all duration-300 group card-glow">
                   <span className="text-primary text-xs font-medium tracking-wider uppercase">
                     {exp.period}
                   </span>

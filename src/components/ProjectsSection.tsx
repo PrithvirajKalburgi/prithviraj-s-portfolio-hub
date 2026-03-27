@@ -62,7 +62,7 @@ const ProjectsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.15 + i * 0.1 }}
-              className="bg-card border border-border rounded-2xl p-6 flex flex-col hover:border-primary/40 transition-all duration-300 group"
+              className="bg-card border border-border rounded-2xl p-6 flex flex-col hover:border-primary/40 transition-all duration-300 group card-glow"
             >
               <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
                 {project.title}
