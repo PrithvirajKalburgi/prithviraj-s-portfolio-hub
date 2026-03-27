@@ -124,10 +124,10 @@ const HeroSection = () => {
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4"
           >
-            <span className="text-gradient-subtle">Hi, I'm</span>{" "}
-            <span className="text-gradient">Prithviraj</span>
+            <span className="text-gradient-hero">Hi, I'm</span>{" "}
+            <span className="text-gradient-hero">Prithviraj</span>
             <br />
-            <span className="text-gradient-subtle">Kalburgi</span>
+            <span className="text-gradient-hero">Kalburgi</span>
           </motion.h1>
 
           <motion.div
