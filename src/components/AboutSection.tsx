@@ -23,7 +23,7 @@ const AboutSection = () => {
           transition={{ delay: 0.2 }}
           className="text-3xl md:text-5xl font-bold text-center mb-12"
         >
-          The <span className="text-gradient">Engineer</span> Behind the Code
+          The <span className="text-gradient">Engineer</span> <span className="text-gradient-warm">Behind the Code</span>
         </motion.h2>
 
         <motion.div

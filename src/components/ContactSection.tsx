@@ -33,7 +33,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-32 relative grid-bg" ref={ref}>
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto px-6 max-w-6xl">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -52,7 +52,7 @@ const ContactSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-10">
           {/* Contact cards */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {contacts.map((c, i) => (
               <motion.a
                 key={c.label}
@@ -62,14 +62,14 @@ const ContactSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + i * 0.1 }}
-                className="bg-card border border-border rounded-2xl p-6 flex items-center gap-4 hover:border-primary/40 transition-all duration-300 group"
+                className="bg-card border border-border rounded-2xl p-6 flex items-center gap-4 hover:border-primary/40 transition-all duration-300 group min-w-0"
               >
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors flex-shrink-0">
                   <c.icon className="text-primary" size={22} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-muted-foreground text-xs uppercase tracking-wider">{c.label}</p>
-                  <p className="text-foreground font-medium group-hover:text-primary transition-colors">{c.value}</p>
+                  <p className="text-foreground font-medium group-hover:text-primary transition-colors truncate">{c.value}</p>
                 </div>
               </motion.a>
             ))}
