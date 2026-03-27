@@ -5,10 +5,12 @@ import ExperienceSection from "@/components/ExperienceSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
+import BackgroundOrbs from "@/components/BackgroundOrbs";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <BackgroundOrbs />
       <Navbar />
       <HeroSection />
       <AboutSection />

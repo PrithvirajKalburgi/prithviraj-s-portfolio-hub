@@ -55,7 +55,7 @@ const ExperienceSection = () => {
           transition={{ delay: 0.1 }}
           className="text-3xl md:text-5xl font-bold text-center mb-16"
         >
-          Work <span className="text-gradient">Experience</span>
+          <span className="text-gradient-warm">Work</span> <span className="text-gradient">Experience</span>
         </motion.h2>
 
         <div className="relative">

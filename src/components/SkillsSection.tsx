@@ -52,7 +52,7 @@ const SkillsSection = () => {
           transition={{ delay: 0.1 }}
           className="text-3xl md:text-5xl font-bold text-center mb-16"
         >
-          My <span className="text-gradient">Tech Stack</span>
+          <span className="text-gradient-warm">My</span> <span className="text-gradient">Tech Stack</span>
         </motion.h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
