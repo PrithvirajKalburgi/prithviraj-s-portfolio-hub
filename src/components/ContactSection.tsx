@@ -37,7 +37,7 @@ const ContactSection = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="text-primary text-sm tracking-[0.3em] uppercase mb-4 text-center"
+          className="text-laser text-sm tracking-[0.3em] uppercase mb-4 text-center"
         >
           Get In Touch
         </motion.p>
