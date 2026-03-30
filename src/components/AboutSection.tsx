@@ -20,7 +20,7 @@ const AboutSection = () => {
           <span className="text-gradient-warm">Behind the Code</span>
         </motion.h2>
 
-        <div className="flex flex-col md:flex-row gap-10 items-center">
+        <div className="flex flex-col md:flex-row gap-16 items-center">
           {/* Text box - left */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
