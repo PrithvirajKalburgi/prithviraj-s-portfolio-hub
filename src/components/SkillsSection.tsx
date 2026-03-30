@@ -57,8 +57,8 @@ const skillCategories = [
     title: "Cloud Platforms",
     icon: Cloud,
     skills: [
-      { name: "AWS", icon: SiAmazonwebservices },
-      { name: "Azure", icon: SiMicrosoftazure },
+      { name: "AWS", icon: Cloud },
+      { name: "Azure", icon: Cloud },
     ],
   },
   {
