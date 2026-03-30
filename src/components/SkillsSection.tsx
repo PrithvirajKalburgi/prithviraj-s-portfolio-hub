@@ -70,7 +70,7 @@ const skillCategories = [
       { name: "AirByte", icon: TbTransform },
       { name: "Dagster", icon: TbTransform },
       { name: "Apache Kafka", icon: SiApachekafka },
-      { name: "Tableau", icon: SiTableau },
+      { name: "Tableau", icon: Database },
       { name: "Pandas", icon: SiPandas },
       { name: "NumPy", icon: SiNumpy },
     ],
