@@ -31,10 +31,10 @@ const TypingAnimation = () => {
           setText(
             isDeleting
               ? currentRole.substring(0, text.length - 1)
-              : currentRole.substring(0, text.length + 1)
+              : currentRole.substring(0, text.length + 1),
           );
         },
-        isDeleting ? 40 : 80
+        isDeleting ? 40 : 80,
       );
     }
     return () => clearTimeout(timeout);
@@ -90,19 +90,39 @@ const InteractiveCodeBlock = () => {
           <div className="w-3 h-3 rounded-full bg-destructive/60" />
           <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
           <div className="w-3 h-3 rounded-full bg-green-500/60" />
-          <span className="ml-auto text-xs text-muted-foreground">portfolio.ts</span>
+          <span className="ml-auto text-xs text-muted-foreground">
+            profile.ts
+          </span>
         </div>
         <div className="p-6 font-mono text-sm leading-relaxed">
-          <Line n={1}><Kw>const</Kw> <Var>developer</Var> = {"{"}</Line>
-          <Line n={2}>  name: <Str>'Prithviraj Kalburgi'</Str>,</Line>
-          <Line n={3}>  degree: <Str>'B.Eng Software Engineering'</Str>,</Line>
-          <Line n={4}>  university: <Str>'TAMK'</Str>,</Line>
-          <Line n={5}>  skills: [<Str>'React'</Str>, <Str>'Python'</Str>, <Str>'AI/ML'</Str>],</Line>
-          <Line n={6}>  passionate: <Kw>true</Kw>,</Line>
-          <Line n={7}>  motto: <Str>"Build with Impact"</Str></Line>
+          <Line n={1}>
+            <Kw>const</Kw> <Var>developer</Var> = {"{"}
+          </Line>
+          <Line n={2}>
+            {" "}
+            name: <Str>'Prithviraj Kalburgi'</Str>,
+          </Line>
+          <Line n={3}>
+            {" "}
+            degree: <Str>'B.Eng Software Engineering'</Str>,
+          </Line>
+          <Line n={4}>
+            {" "}
+            university: <Str>'Tampere University of Applied Sciences'</Str>,
+          </Line>
+          <Line n={6}>
+            {" "}
+            passionate: <Kw>true</Kw>,
+          </Line>
+          <Line n={7}>
+            {" "}
+            motto: <Str>"Build with Impact"</Str>
+          </Line>
           <Line n={8}>{"}"};</Line>
           <Line n={9}> </Line>
-          <Line n={10}><Var>developer</Var>.<Fn>create</Fn>();</Line>
+          <Line n={10}>
+            <Var>developer</Var>.<Fn>create</Fn>();
+          </Line>
         </div>
       </div>
     </motion.div>
@@ -111,7 +131,10 @@ const InteractiveCodeBlock = () => {
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
       <ConstellationBackground />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/8 rounded-full blur-[100px]" />
@@ -165,13 +188,23 @@ const HeroSection = () => {
 
 const Line = ({ n, children }: { n: number; children: React.ReactNode }) => (
   <div className="flex">
-    <span className="text-muted-foreground/40 w-8 select-none">{String(n).padStart(2, "0")}</span>
+    <span className="text-muted-foreground/40 w-8 select-none">
+      {String(n).padStart(2, "0")}
+    </span>
     <span>{children}</span>
   </div>
 );
-const Kw = ({ children }: { children: React.ReactNode }) => <span className="text-primary">{children}</span>;
-const Str = ({ children }: { children: React.ReactNode }) => <span className="text-green-400">{children}</span>;
-const Var = ({ children }: { children: React.ReactNode }) => <span className="text-foreground">{children}</span>;
-const Fn = ({ children }: { children: React.ReactNode }) => <span className="text-yellow-400">{children}</span>;
+const Kw = ({ children }: { children: React.ReactNode }) => (
+  <span className="text-primary">{children}</span>
+);
+const Str = ({ children }: { children: React.ReactNode }) => (
+  <span className="text-green-400">{children}</span>
+);
+const Var = ({ children }: { children: React.ReactNode }) => (
+  <span className="text-foreground">{children}</span>
+);
+const Fn = ({ children }: { children: React.ReactNode }) => (
+  <span className="text-yellow-400">{children}</span>
+);
 
 export default HeroSection;
