@@ -68,7 +68,7 @@ const skillCategories = [
     skills: [
       { name: "Luigi (ETL)", icon: TbTransform },
       { name: "AirByte", icon: TbTransform },
-      { name: "Dagster", icon: SiDagster },
+      { name: "Dagster", icon: TbTransform },
       { name: "Apache Kafka", icon: SiApachekafka },
       { name: "Tableau", icon: SiTableau },
       { name: "Pandas", icon: SiPandas },
