@@ -1,5 +1,5 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import {
   SiReact, SiNodedotjs, SiExpress,
   SiPython, SiJavascript, SiTypescript, SiCplusplus,
@@ -87,6 +87,101 @@ const skillCategories = [
   },
 ];
 
+const codeSnippets = [
+  'const app = express();',
+  'import torch',
+  'git commit -m "deploy"',
+  'SELECT * FROM users;',
+  'docker build -t app .',
+  'npm run build',
+  'python train.py --epochs 50',
+  'kubectl apply -f deploy.yaml',
+  'aws s3 sync . s3://bucket',
+  'const model = tf.sequential();',
+  'pip install scikit-learn',
+  'javac Main.java && java Main',
+  'CREATE TABLE skills (...);',
+  'from kafka import Consumer',
+  'def predict(X): return model(X)',
+  'git push origin main',
+  'curl -X POST /api/v1/data',
+  'export default function App()',
+  'console.log("Hello World")',
+  'chmod +x deploy.sh && ./deploy.sh',
+];
+
+const MatrixRain = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  const draw = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    const fontSize = 13;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops: number[] = new Array(columns).fill(0).map(() => Math.random() * -50);
+    const snippetChars: string[] = [];
+
+    for (const s of codeSnippets) {
+      for (const c of s) snippetChars.push(c);
+    }
+
+    let animId: number;
+    const render = () => {
+      ctx.fillStyle = "rgba(10, 15, 28, 0.06)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < drops.length; i++) {
+        const char = snippetChars[Math.floor(Math.random() * snippetChars.length)];
+        const y = drops[i] * fontSize;
+        const opacity = Math.max(0, 1 - y / canvas.height);
+
+        ctx.fillStyle = `rgba(0, 185, 130, ${opacity * 0.7})`;
+        ctx.font = `${fontSize}px "SF Mono", "Fira Code", monospace`;
+        ctx.fillText(char, i * fontSize, y);
+
+        // Brighter leading character
+        if (Math.random() > 0.95) {
+          ctx.fillStyle = `rgba(0, 255, 180, ${opacity})`;
+          ctx.fillText(char, i * fontSize, y);
+        }
+
+        if (y > canvas.height && Math.random() > 0.98) {
+          drops[i] = 0;
+        }
+        drops[i] += 0.4 + Math.random() * 0.3;
+      }
+      animId = requestAnimationFrame(render);
+    };
+
+    render();
+    return () => cancelAnimationFrame(animId);
+  }, []);
+
+  useEffect(() => {
+    const cleanup = draw();
+    const handleResize = () => draw();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      cleanup?.();
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [draw]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ maskImage: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.5) 60%, transparent 100%)" }}
+    />
+  );
+};
+
 const SkillsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -95,8 +190,14 @@ const SkillsSection = () => {
   const activeCat = skillCategories.find((c) => c.id === activeCategory)!;
 
   return (
-    <section id="skills" className="py-32 relative" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section id="skills" className="py-32 relative overflow-hidden" ref={ref}>
+      {/* Matrix rain background */}
+      <MatrixRain />
+
+      {/* Bottom fade to blend into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-20">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -139,7 +240,7 @@ const SkillsSection = () => {
           })}
         </motion.div>
 
-        {/* Skills grid */}
+        {/* Skills grid - centered with flex */}
         <div className="max-w-4xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
@@ -148,7 +249,7 @@ const SkillsSection = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.25 }}
-              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+              className="flex flex-wrap justify-center gap-4"
             >
               {activeCat.skills.map((skill, i) => {
                 const SkillIcon = skill.icon;
@@ -158,7 +259,7 @@ const SkillsSection = () => {
                     initial={{ opacity: 0, scale: 0.85 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: i * 0.05 }}
-                    className="group flex flex-col items-center gap-3 p-5 rounded-2xl bg-card border border-border hover:border-primary/40 transition-all duration-300 card-glow cursor-default"
+                    className="group flex flex-col items-center gap-3 p-5 w-28 rounded-2xl bg-card/80 backdrop-blur-sm border border-border hover:border-primary/40 transition-all duration-300 card-glow cursor-default"
                   >
                     <SkillIcon
                       size={36}
@@ -174,33 +275,6 @@ const SkillsSection = () => {
             </motion.div>
           </AnimatePresence>
         </div>
-
-        {/* Scrolling marquee of all skills */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.5 }}
-          className="mt-16 overflow-hidden relative max-w-5xl mx-auto"
-        >
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10" />
-          <div className="flex animate-marquee whitespace-nowrap gap-6">
-            {[...skillCategories.flatMap((c) => c.skills), ...skillCategories.flatMap((c) => c.skills)].map(
-              (skill, i) => {
-                const SkillIcon = skill.icon;
-                return (
-                  <div
-                    key={`${skill.name}-${i}`}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 text-muted-foreground text-xs font-medium flex-shrink-0"
-                  >
-                    <SkillIcon size={14} style={{ color: skill.color }} />
-                    {skill.name}
-                  </div>
-                );
-              }
-            )}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
