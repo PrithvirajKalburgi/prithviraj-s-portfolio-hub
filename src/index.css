@@ -101,8 +101,8 @@
   background: linear-gradient(
     135deg,
     hsl(94, 72%, 52%),
-    hsl(190 80% 60%),
-    hsl(174 72% 70%)
+    hsl(112, 80%, 60%),
+    hsl(174, 81%, 53%)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -119,8 +119,8 @@
 .text-gradient-hero {
   background: linear-gradient(
     135deg,
-    hsl(95, 96%, 47%) 21%,
-    hsl(176, 82%, 54%) 70%
+    hsl(0, 0%, 100%) 21%,
+    hsl(173, 26%, 93%) 70%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -130,8 +130,8 @@
 .text-gradient-warm {
   background: linear-gradient(
     135deg,
-    hsl(210 40% 85%),
-    hsl(220 50% 75%),
+    hsl(0, 0%, 97%),
+    hsl(210, 40%, 98%),
     hsl(174 50% 65%)
   );
   -webkit-background-clip: text;

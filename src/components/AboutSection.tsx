@@ -28,34 +28,61 @@ const AboutSection = () => {
             transition={{ delay: 0.4 }}
             className="bg-card border border-border rounded-2xl p-8 md:p-12 card-glow flex-1"
           >
-            <p className="text-muted-foreground leading-relaxed text-lg mb-6">
-              Hi there! I'm an enthusiastic and passionate Software Engineer with
-              a strong interest in developing innovative solutions that make a
-              real impact. As a recent graduate from{" "}
-              <span className="text-foreground font-medium">
+            <p
+              className="text-muted-foreground leading-relaxed text-lg mb-6"
+              style={{ color: "white" }}
+            >
+              Hi there! I'm an enthusiastic and passionate Software Engineer
+              with a strong interest in developing innovative solutions that
+              make a real impact. As a recent graduate from{" "}
+              <span
+                className="text-foreground font-medium"
+                style={{ color: "rgb(100, 231, 64)" }}
+              >
                 Tampere University of Applied Sciences
               </span>{" "}
               with a bachelor's in Software Engineering, I've built a solid
               foundation in programming across multiple languages and gained
               in-depth technical knowledge in various tech domains.
             </p>
-            <p className="text-muted-foreground leading-relaxed text-lg mb-6">
+            <p
+              className="text-muted-foreground leading-relaxed text-lg mb-6"
+              style={{ color: "white" }}
+            >
               My core interests lie in{" "}
-              <span className="text-primary font-medium">
+              <span
+                className="text-primary font-medium"
+                style={{ color: "rgb(100, 231, 64)" }}
+              >
                 Artificial Intelligence
               </span>
-              , <span className="text-primary font-medium">Machine Learning</span>
-              , and <span className="text-primary font-medium">Data Science</span>
+              ,{" "}
+              <span
+                className="text-primary font-medium"
+                style={{ color: "rgb(100, 231, 64)" }}
+              >
+                Machine Learning
+              </span>
+              , and{" "}
+              <span
+                className="text-primary font-medium"
+                style={{ color: "rgb(100, 231, 64)" }}
+              >
+                Data Science
+              </span>
               . Through academic projects, research, and practical applications,
               I've developed a deeper understanding of these fields and love
               working on problems that challenge me to think critically and
               creatively.
             </p>
-            <p className="text-muted-foreground leading-relaxed text-lg">
+            <p
+              className="text-muted-foreground leading-relaxed text-lg"
+              style={{ color: "white" }}
+            >
               Beyond my technical skills, I'm an outgoing person who loves
-              collaborative work—sharing perspectives and ideas while gaining new
-              ones. I'm open-minded, hardworking, and someone who likes to go
-              above and beyond.
+              collaborative work—sharing perspectives and ideas while gaining
+              new ones. I'm open-minded, hardworking, and someone who likes to
+              go above and beyond.
             </p>
           </motion.div>
 
@@ -74,7 +101,7 @@ const AboutSection = () => {
                 <img
                   src={profileImg}
                   alt="Prithviraj Kalburgi"
-                  className="w-full h-full object-cover object-[center_15%]"
+                  className="w-full h-full object-cover object-[center_-20%]"
                 />
               </div>
             </div>

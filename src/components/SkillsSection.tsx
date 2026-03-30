@@ -14,17 +14,7 @@ import { VscAzure } from "react-icons/vsc";
 import { TbApi, TbTransform, TbBrain } from "react-icons/tb";
 
 const skillCategories = [
-  {
-    id: "fullstack",
-    title: "Full Stack",
-    skills: [
-      { name: "React", icon: SiReact, color: "#61DAFB" },
-      { name: "REST API", icon: TbApi, color: "#00B982" },
-      { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-      { name: "Express", icon: SiExpress, color: "#FFFFFF" },
-    ],
-  },
-  {
+    {
     id: "languages",
     title: "Programming Languages",
     skills: [
@@ -38,6 +28,17 @@ const skillCategories = [
       { name: "Bash", icon: SiGnubash, color: "#4EAA25" },
     ],
   },
+  {
+    id: "fullstack",
+    title: "Full Stack",
+    skills: [
+      { name: "React", icon: SiReact, color: "#61DAFB" },
+      { name: "REST API", icon: TbApi, color: "#05e7a3" },
+      { name: "Node.js", icon: SiNodedotjs, color: "#44c344" },
+      { name: "Express", icon: SiExpress, color: "#FFFFFF" },
+    ],
+  },
+
   {
     id: "automation",
     title: "Automation & Testing",
@@ -62,10 +63,10 @@ const skillCategories = [
       { name: "Luigi (ETL)", icon: TbTransform, color: "#00B982" },
       { name: "AirByte", icon: TbTransform, color: "#615EFF" },
       { name: "Dagster", icon: TbTransform, color: "#4F43DD" },
-      { name: "Apache Kafka", icon: SiApachekafka, color: "#231F20" },
+      { name: "Apache Kafka", icon: SiApachekafka, color: "#dc0f42" },
       { name: "Tableau", icon: FaDatabase, color: "#E97627" },
-      { name: "Pandas", icon: SiPandas, color: "#150458" },
-      { name: "NumPy", icon: SiNumpy, color: "#013243" },
+      { name: "Pandas", icon: SiPandas, color: "#2d08c1" },
+      { name: "NumPy", icon: SiNumpy, color: "#1092bd" },
     ],
   },
   {
