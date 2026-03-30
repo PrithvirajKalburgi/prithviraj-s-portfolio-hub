@@ -5,10 +5,9 @@ import {
   SiPython, SiJavascript, SiTypescript, SiCplusplus,
   SiHtml5, SiGnubash,
   SiDocker, SiJunit5, SiGithubactions,
-  SiAmazonwebservices, SiMicrosoftazure,
-  SiApachekafka, SiPandas, SiNumpy, SiTableau,
+  SiApachekafka, SiPandas, SiNumpy,
   SiTensorflow, SiPytorch, SiScikitlearn,
-  SiGit, SiDagster,
+  SiGit,
 } from "react-icons/si";
 import { FaJava, FaDatabase } from "react-icons/fa";
 import { TbApi, TbTransform, TbBrain } from "react-icons/tb";
